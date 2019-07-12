@@ -1,0 +1,69 @@
+
+<html>
+    <head>
+	
+  	<script>if ('serviceWorker' in navigator) {
+	console.log("in navigator")
+	  window.addEventListener('load', () => {
+    navigator.serviceWorker.register("/service-worker.js")
+		        .then((reg) => {
+          console.log('Service worker registered.', reg);
+        });
+  });
+}</script>
+		<link rel="manifest" href="/manifest.json">
+	
+        <title>Page Title</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<link href="/slider.css" rel="stylesheet">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="Slider Puzzle">
+<meta name="description" content="Slider Puzzle">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#2F3BA2" />
+<link rel="apple-touch-icon" href="/images/icons/icon-152x152.png">
+    </head>
+    <body>
+		 
+		 
+<!-- <script src="/scripts/install.js"></script>	 -->
+        
+
+<script src="/scripts/slider.js"></script>
+
+
+
+        <h1>Slider puzzle</h1>
+        <div id = "grid">
+              </div>
+        <button onclick = "show()" id = "sol">Show Solution</button>
+
+          
+        <div id = "pic">
+              <img src = "/images/pics/image_part_001.jpg">
+              <img src = "/images/pics/image_part_002.jpg">
+              <img src = "/images/pics/image_part_003.jpg">
+              <img src = "/images/pics/image_part_004.jpg">
+              <img src = "/images/pics/image_part_005.jpg">
+              <img src = "/images/pics/image_part_006.jpg">
+              <img src = "/images/pics/image_part_007.jpg">
+              <img src = "/images/pics/image_part_008.jpg">
+              <img src = "/images/pics/image_part_009.jpg">
+              <img src = "/images/pics/image_part_010.jpg">
+              <img src = "/images/pics/image_part_011.jpg">
+              <img src = "/images/pics/image_part_012.jpg">
+              <img src = "/images/pics/image_part_013.jpg">
+              <img src = "/images/pics/image_part_014.jpg">
+              <img src = "/images/pics/image_part_015.jpg">
+              <img src = "/images/pics/image_part_016.jpg">
+            
+ 
+      
+            
+        </div>
+       
+  
+    </body>
+</html>

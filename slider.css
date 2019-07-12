@@ -1,0 +1,29 @@
+body {
+    background-color:#c0c0ff;  
+    
+}
+#grid,#pic{
+    display:grid;
+    
+    grid-template-columns: 64px 64px 64px 64px;
+    grid-gap: 0;
+    margin-bottom: 10px;
+   
+    
+    
+    
+}
+
+img{ width:64px
+}
+
+
+input{
+    
+    width:64px;
+    height:64px;
+}
+
+#pic{
+     visibility: hidden;
+}
