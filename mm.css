@@ -66,3 +66,31 @@ button{
     grid-template-columns:1fr 1fr 4fr;
     margin-bottom:10px;
 }
+}
+#rules{
+    border-style: solid;
+    border-color:white;
+    padding: 15px;
+}
+
+
+
+#secret >*{
+    height:20px;
+    width:20px;
+    border-radius:50px;
+    
+}
+#grey,#set{
+   
+    border-radius:20px;
+    background-color:transparent;
+     
+}
+
+#actCol{
+    display:grid;
+    width:300px;
+    grid-template-columns:1fr 1fr 4fr;
+    margin-bottom:10px;
+}
