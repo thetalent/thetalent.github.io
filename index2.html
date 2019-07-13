@@ -11,9 +11,10 @@
             // Register the service worker
             if('serviceWorker' in navigator)
             {
-                navigator.serviceWorker.register('sw_mm.js').then(
-                    function(registration){
-                             console.log("We work with a service Worker")
+                navigator.serviceWorker.register('sw_mm.js')
+                    .then(
+                        function(registration){
+                             console.log("We work with a service Worker")}
                             
                  ).catch(function(err){console.log(err)}
             }
