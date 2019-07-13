@@ -2,7 +2,7 @@ var cacheName = 'mastermind'
 
 self.addEventListener('install',event => {
   event.waitUntil(
-    caches.open(cachName)
+    caches.open(cacheName)
       .then(cache => cache.adAll([
         'index2.html',
         'mm.css',
