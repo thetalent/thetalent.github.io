@@ -22,5 +22,6 @@ self.addEventListener('install',event => {
          return fetch(event.request)
       }
   )
+    )
  })
     
