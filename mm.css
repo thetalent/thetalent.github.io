@@ -1,0 +1,68 @@
+body{
+    
+  background-color:#c0c0ff;  
+}
+#board {
+align:center;
+    display:grid;
+    width:300px;
+    grid-template-gap: 1px;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    
+}
+
+#secret {
+    display:grid;
+    width:300px;
+    
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr  1fr 2fr;
+    border-style:3px,solid;
+    margin-bottom:20px;
+}
+.pins{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+}
+
+button{
+    border-radius:50%;
+}
+
+.pins >*{
+    border-radius:50%;
+}
+
+.pins{
+    background-color:darkwhite;
+    border-style:solid;
+    border-color:lightgrey;
+    border-style:1px;
+    
+}
+#rules{
+    border-style: solid;
+    border-color:white;
+    padding: 15px;
+}
+
+
+
+#secret >*{
+    height:20px;
+    width:20px;
+    border-radius:50px;
+    
+}
+#grey,#set{
+   
+    border-radius:20px;
+    background-color:transparent;
+     
+}
+
+#actCol{
+    display:grid;
+    width:300px;
+    grid-template-columns:1fr 1fr 4fr;
+    margin-bottom:10px;
+}
