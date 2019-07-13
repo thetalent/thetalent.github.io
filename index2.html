@@ -7,6 +7,17 @@
     <body>
          <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
         <script src = "mm.js"></script>
+        <script>
+            // Register the service worker
+            if('serviceWorker' in navigator)
+            {
+                navigator.serviceWorker.register('sw_mm.js').then(
+                    function(registration){
+                             console.log("We work with a service Worker")
+                            
+                 ).catch(function(err){console.log(err)}
+            }
+        </script>
       
  
 <div><h1>Mastermind</h1>
