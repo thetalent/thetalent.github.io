@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <title>Mastermind</title>
+    </head>
+    <body>
+         <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+      
+ 
+<div><h1>Mastermind</h1>
+    <p>See rules below</p>
+      <div id = "secret">
+            
+          
+            <button id = "0"  onClick = colorPick()></button>
+            <button id = "1"  onClick = colorPick()></button>
+            <button id = "2"  onClick = colorPick()></button>
+            <button id = "3"  onClick = colorPick() ></button>
+            <button id = "4" onClick = colorPick() ></button> 
+            <button id = "5" onClick = colorPick()></button>
+           
+         </div>
+<!--        <div id = "actCol"> 
+          <button id = "set">Picked Color</button><button id = "grey" ></button>
+</div> 
+-->
+         <div id = "board">
+             
+         </div>
+         <div id = "rules">
+             <p>
+             Find a given 4-sequence of colors.
+             There are 6 possible colors.one color can occur more than 1 time.
+            Pick a color from first row and color the fields of one row. Clicking the question mark evaluates the sequence.<br>
+             Evaluation maps each element to the sequence.
+             First we try to map equal colors at equal place(green pin). Then equal colors but wrong place(yellow pin). Elements that cant be mapped to equal color create a red pin.
+The pins are sorted by colors and not by places.
+         </p>
+         <a href="http://mathworld.wolfram.com/Mastermind.html">The story behind</a>
+    </body>
+</html>
