@@ -1,5 +1,6 @@
 var cacheName = 'mastermind'
 
+
 self.addEventListener('install',event => {
   event.waitUntil(
     caches.open(cacheName)
@@ -7,21 +8,26 @@ self.addEventListener('install',event => {
         'index2.html',
         'mm.css',
         'mm.js'
+        'offline.html'
         ]))
   )
  });
  
  
  self.addEventListener('fetch',function(event){
-  event.respondWith(
-    caches.match(event.request)
-      .then(function(response){
-         if(response){
-         return(response)
-         }
-         return fetch(event.request)
-      }
-  )
-    )
+   if (event.request.method === 'GET' && event.request.headers.get('accept')
+       .includes('text/html')){ event.respondWith(
+   {
+     return caches.match('index2.html)
+     
+   })
+   )
+   }
+   
+   else{
+   
+  event.respondWith(fetch(event.request));
+   }
+   
  })
     
