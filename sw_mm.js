@@ -7,7 +7,7 @@ self.addEventListener('install',event => {
       .then(cache => cache.adAll([
         'index2.html',
         'mm.css',
-        'mm.js'
+        'mm.js',
         'offline.html'
         ]))
   )
