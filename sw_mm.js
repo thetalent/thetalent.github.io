@@ -1,17 +1,18 @@
 var cacheName = 'mastermind'
 
 
-self.addEventListener('install',event => {
+sself.addEventListener('install', event => {
   event.waitUntil(
     caches.open(cacheName)
-      .then(cache => cache.adAll([
+    .then(cache => cache.addAll([
         'index2.html',
         'mm.css',
         'mm.js',
         'offline.html'
         ]))
-  )
- });
+  );
+});
+
  
  
 self.addEventListener('fetch', function(event) {
