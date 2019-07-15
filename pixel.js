@@ -1,0 +1,8 @@
+ody {
+    
+}
+
+#canvas{
+    display:grid;
+    grid-template-columns: repeat(20,auto)
+}
