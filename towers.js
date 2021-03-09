@@ -30,11 +30,11 @@ function bpressed(b){
     }
     idx = l1.indexOf(b)
     if(idx < l1.length-3){
-        alert("Too much slices to move:")
+        alert("Das sind zuviele Scheiben!")
         return
     }
     if((b%2) == (l2[l2.length-1]%2)){
-        alert("Not possible - same color family")
+        alert("DAS geht nicht - gleiche Farbe")
         return
     }
   
@@ -58,7 +58,7 @@ function render(){
  
  background(255,255,255,255)
  
- text("Moves: " + moves,10,35)
+ text("Züge: " + moves,10,35)
  buttons.forEach(function(item){item.remove()})
 
  for(let i=0;i<2;i++){
@@ -90,7 +90,7 @@ function reset(){
 }
 
 function setup(){
-    alert("Move tower from left to right. You may move up to 3 slices. No (red/blue) slice may be placed on a (red/blue) slice. Click lowest slice that you want to move.")
+    alert("Hallo Huch! Der Turm muss nach rechts. Ihr dürft bis zu 3 Scheiben gleichzeitig bewegen. Aber keine gleichen Farben aufeinander ")
     textSize(textsize);
     
      render()
