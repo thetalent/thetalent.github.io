@@ -9,7 +9,7 @@ colors = ["dr","dbl","r","bl","br"]
 done = false
 buttons = []
 textsize = 15
-label="MENSA"
+label="ASNEM"
   
 
 
