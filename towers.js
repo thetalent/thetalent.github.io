@@ -90,7 +90,7 @@ function reset(){
 }
 
 function setup(){
-    alert("Hallo Huch! Der Turm muss nach rechts. Ihr dürft bis zu 3 Scheiben gleichzeitig bewegen. Aber keine gleichen Farben aufeinander ")
+    alert("Hallo Ms! Der Turm muss nach rechts. Ihr dürft bis zu 3 Scheiben gleichzeitig bewegen. Aber keine gleichen Farben aufeinander ")
     textSize(textsize);
     
      render()
