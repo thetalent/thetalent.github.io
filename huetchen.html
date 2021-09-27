@@ -121,6 +121,9 @@ function color(clicked){
 }
 
 function hat(clicked){
+    if(state[parseInt(clicked)] === actColor)
+        return;
+
     if (clicked == "4"){
         mv++
   document.getElementById(clicked).style.background=colors[actColor]
@@ -144,7 +147,8 @@ function hat(clicked){
     else{
         state[clickedHat]=actColor
         document.getElementById(clicked).style.background=colors[actColor]
-        mv++
+        mv++;
+        document.getElementById("m").innerHTML=mv;
     }
 }
                 </script>
