@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+
+<html> 
+    <head> 
+    <h2>Click until all circles are green  </h2>
+
+   
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/p5.js"></script> 
+        <script src =   " https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/addons/p5.dom.js">
+        </script>  
+       <script src =   " https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/addons/p5.sketch.js">
+        </script>  
+<script>
+ var circles = [];
+var yvals = [];
+var bvals = [];
+var level = 11;
+var clicks = 0;
+var col = {};
+var radius = 150;
+var height= 200;
+var width = 200;
+var d = 50;
+var p;
+
+
+class circle{
+    constructor (number,color) {
+          this.number = number;
+    this.pos = createVector (width/2 + radius*(Math.cos(2*Math.PI/level*this.number)),height/2 +radius*(Math.sin(2*Math.PI/level*this.number)));
+
+  
+    this.color = color;
+  
+    this.right = (number+1) % level;
+    this.left =  (number-1 + level) % level;
+   
+
+}    
+  toggleColor(){
+      this.color = this.color * (-1);
+  }
+  
+  render(){
+       
+        fill(color(col[this.color]));
+        noStroke();
+        ellipse(this.pos.x,this.pos.y,d,d);
+  }
+}
+
+class score{
+    static render(){
+        fill(150);
+        noStroke();
+        ellipse(200,200,80,80);
+        textSize(32);
+        fill("darkred");
+        textFont('Georgia');
+        textAlign(CENTER);
+        textStyle(BOLD);
+        text(String(clicks),200,200);
+    }
+}
+
+
+function setup() 
+{
+    p=createP("Number of clicks: " + clicks );
+    createCanvas(400, 400);
+    noLoop();
+    background(0);
+    col[-1] = ("green");
+    col[1] = ("darkred");   
+    for(var i = 0; i < 11; i++) {
+        circles[i] = new circle(i,-1);
+        
+       
+        
+    }
+ }  
+function mouseClicked(){
+    var mv = createVector(mouseX,mouseY);
+ 
+ var cv;
+
+
+  circles.forEach(function(c){
+  var dist = mv.dist(c.pos);
+  if (dist <= d/2 && c.color ==1){
+  clicks += 1;
+       p.html ("Number of clicks: " +clicks );
+     //  score.render();
+      c.toggleColor();
+      c.render();
+      circles[c.right].toggleColor();
+      circles[c.right].render();
+      circles[c.left].toggleColor();
+      circles[c.left].render();
+  }
+      
+  }
+ )   ;
+
+}
+
+
+
+function draw(){
+    background(0);
+    circles[0].toggleColor();
+    circles.forEach(function(c) {
+     c.render();
+   
+    });
+//  score.render();
+  /*Here is my prob
+ for(var i=0; i< circles.length; i++) {
+       circles[i].addEventListener("click", bindClick(i));
+ }  
+ */
+}
+ 
+   
+    
+</script>        
+     
+
+</head>
+</html>
