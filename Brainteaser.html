@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Page Title</title>
+    </head>
+    <body>
+    <script>
+        
+   /*
+
+
+1. Beginner http://www.cs.cmu.edu/~mmv/planning/homework/Homework1/cards.jpg
+2. Intermediate http://www.cs.cmu.edu/~mmv/planning/homework/Homework1/cards1.jpg
+2
+3. Advanced http://www.cs.cmu.edu/~mmv/planning/homework/Homework1/cards2.jpg
+4. Expert http://www.cs.cmu.edu/~mmv/planning/homework/Homework1/cards3.jpg
+5. Expert 2 http://www.cs.cmu.edu/~mmv/planning/homework/Homework1/cards4.jpg
+
+*/
+alert("Special thanks to Alexander who contributed the last challanges")
+a = "a"
+g="g"
+h = "h"
+direction = "l"
+pidx = 0
+mazes = [
+//1
+[[g,g,g,g,a],[g,g,a,g,g],[g,a,g,g,g],[g,g,g,a,g],[g,g,g,g,h]],
+//2
+[[g,g,a,g,g],[g,g,g,g,a],[g,g,g,g,g],[g,a,g,h,a],[g,g,a,g,g]],
+//3
+[[g,g,g,a,g],[g,a,g,g,a],[g,g,g,g,g],[g,g,g,g,g],[g,h,g,a,g]],
+//4
+[[g,g,a,g,g],[g,g,g,g,a],[g,a,g,g,g],[g,g,a,g,g],[g,g,g,g,h]],
+//5
+[[g,g,g,a,g],[g,a,g,g,g],[g,g,g,g,g],[g,g,a,g,g],[g,g,a,g,h]],
+//6
+[[a,g,g,g,a],[g,g,g,a,g],[g,g,g,g,g],[g,g,a,g,g],[g,h,g,g,g]],
+//7
+[[g,a,g,g,g],[g,g,g,g,a],[g,g,g,g,g],[g,g,g,g,g],[a,h,a,g,g]],
+
+//8
+[[a,g,a,g,g],[g,g,g,a,g],[g,g,g,g,g],[g,g,a,g,g],[g,h,g,g,g]],
+//9
+[[g,g,g,g,g],[g,a,g,g,g],[g,g,g,g,a],[g,g,g,g,g],[a,g,a,g,h]],
+//10
+[[g,g,a,g,g],[a,g,h,g,a],[g,g,a,g,g],[g,g,a,g,g],[g,g,g,g,g]],
+//11
+[[g,a,g,g,g],[g,g,g,g,a],[g,g,g,g,g],[g,g,g,g,g],[g,a,g,g,h]],
+//12
+[[g,a,g,g,g],[g,g,g,a,g],[g,g,g,g,g],[g,a,g,h,g],[g,g,a,g,g]],
+//13
+[[g,g,g,g,a],[g,a,g,g,g],[g,g,g,g,a],[g,g,a,g,g],[g,g,g,g,h]],
+//14
+[[g,a,g,g,a],[g,g,g,g,g],[g,g,g,g,a],[a,g,g,g,g],[g,g,g,g,h]],
+//15
+[[a,g,h,g,a],[g,g,g,g,g],[g,g,g,g,g],[g,g,g,g,g],[a,g,g,g,a]],
+//16
+[[g,g,h,g,g],[g,a,g,g,a],[a,g,g,g,g],[g,g,g,g,g],[g,a,g,g,a]],
+//17
+//[[a,g,a,g,g],[g,g,g,g,a],[a,g,g,g,g],[g,g,h,g,g],[g,a,g,g,g]],
+//17
+[[g,a,g,g,g],[g,g,g,g,a],[g,g,g,g,g],[g,g,g,g,g],[a,h,a,g,g]],
+//18
+[[a,a,g,g,g],[g,g,g,g,a],[g,g,g,g,g],[a,g,g,g,g],[g,g,g,a,h]],
+//19
+[[g,g,a,g,a],[g,g,g,g,g],[a,g,g,g,g],[g,g,g,a,g],[a,g,g,g,h]],
+//20
+[[a,g,h,g,a],[g,g,a,g,g],[g,g,g,g,g],[g,g,g,g,g],[a,g,g,g,a]],
+
+//21
+[[g,g,h,g,g],[a,g,g,g,a],[g,g,g,g,g],[a,g,g,g,a],[g,g,a,g,g]],
+//22
+[[a,g,g,h,a],[g,g,g,g,g],[g,g,g,g,g],[a,g,g,a,g],[g,g,g,g,g]],
+//23
+[[g,g,a,g,h],[g,g,g,g,g],[a,a,g,g,g],[g,g,g,g,g],[g,a,g,g,a]],
+//24
+[[a,g,h,g,a],[g,g,g,g,g],[a,g,g,g,g],[g,g,g,g,g],[a,g,g,g,a]],
+//25
+[[a,g,h,g,a],[g,g,g,g,g],[g,g,g,g,g],[g,g,g,g,a],[g,a,g,g,g]],
+]
+
+
+
+
+gridArr = []
+astro = "a"
+buttons = ["⬆️","⬇️","⬅️","➡️"]
+cl = {a:["y"],g:["gr"],h:["harry"]}
+
+
+
+//startPositions = [[0,0],[0,4],[1,3],[3,1],[4,0]]
+//startHarry = [4,4]
+function prev(){
+    if (pidx == 0){
+        alert("This is the first challenge")
+        pidx = mazes.length - 1
+    }
+    else {
+            pidx--
+        }
+    reset()
+    }
+function next(){
+    if (pidx + 1 < mazes.length){
+        pidx++;
+        reset()
+    }
+    else{
+        alert("That was the last challenge")
+        pidx = 0
+        reset()
+    }
+
+}
+
+function reset(){
+    document.getElementById("ch").innerHTML= "Challenge Number "+(pidx + 1)
+     direction = "l"
+    document.getElementById("dir").innerHTML =
+     "The direction is ⬅️"
+   maze =JSON.parse(JSON.stringify(mazes[pidx])); 
+    for(let i = 0;i<5;i++){
+        for(let j = 0;j<5;j++){
+            let mycell = gridArr[i][j]
+            mycell.classList.remove("y","gr","harry")
+            mycell.classList.add(cl[maze[i][j]])
+           
+            
+        }
+    }
+}
+
+function newAstroPosition(x,y,d){
+    let rx = 0
+    let ry = 0
+    fig = maze[x][y]  
+    maze[x][y] = g
+    //if it is not an asro itself - do nothing
+    if(fig == g){
+        alert("There is no live on this tile")
+        return [99,99]
+    }
+    
+    let stopped = false
+
+    switch(d){
+        //
+        case "u":
+             
+            if(x==0){
+                rx = 99
+                ry = 99
+                break
+            }
+            for(let i = x-1;i>=0;i--){
+                if(maze[i][y] == astro || maze[i][y] == h){
+                    stopped = true
+                    maze[i+1][y] = fig
+                     rx=i+1
+                    ry = y
+                    break      
+                }
+            }
+             break;
+        case "d":
+       
+            if(x==4){
+                rx = 99
+                ry = 99
+                break
+            }
+            for(let i = x+1;i<5;i++){
+                if(maze[i][y] == astro || maze[i][y] == h){                   
+                    stopped = true
+                    maze[i-1][y]=fig
+                     rx=i-1
+                     ry = y      
+                     break           
+                    
+                }
+            }
+            break;
+        case "l":
+            if(y==0){
+                rx = 99
+                ry = 99
+                break
+            }
+            for(let i = y-1;i>=0;i--){
+                if(maze[x][i] == astro || maze[x][i] == h){
+                    stopped = true
+                    maze[x][i+1]=fig
+                     rx=x
+                     ry = i+1
+                     break                  
+                }
+            }
+             break;
+        case "r":
+            if(y==4) {
+                rx = 99
+                ry = 99
+                break
+            }
+            for(let i = y+1;i<5;i++){
+                if(maze[x][i] == astro || maze[x][i] == h){
+                    stopped = true
+                    maze[x][i-1]=fig
+                     rx=x
+                     ry = i-1
+                     break
+                  
+                   
+                }
+            } 
+             break;      
+
+    }
+    if(!stopped){
+        alert("This guy is lost in space....farewell")
+    }
+    return [rx,ry]
+}
+
+function click(x,y){
+    let mycell = gridArr[0][0]
+    
+    let nextAstro =newAstroPosition(x,y,direction)
+  
+    if(nextAstro[0] < 99){    
+        let x1 = nextAstro[0]
+        let y1 = nextAstro[1]   
+        mycell = gridArr[x1][y1]     
+        mycell.classList.remove("y","gr","harry")
+        let idx = maze[x1][y1]      
+        mycell.classList.add(cl[idx][0])   
+    }
+    mycell =gridArr[x][y]
+    idx = maze[x][y]
+        mycell.classList.remove("y","gr","harry")
+    mycell.classList.add(cl[idx][0])
+    if(gridArr[2][2].classList.contains("harry")){
+        alert("Sir Harry landed on the correct tile - you won")
+    }
+ 
+    
+
+    
+}
+
+function setDirection(d){
+    direction = d
+}
+window.onload = function(){
+    document.getElementById("ch").innerHTML= "Challenge Number "+(pidx + 1)
+    maze = JSON.parse(JSON.stringify(mazes[0])); 
+    maze_save =  JSON.parse(JSON.stringify(maze)); 
+    //create button range
+    blist = document.getElementById("buttons")
+    for(let i = 0;i<4;i++){
+        let b = document.createElement("div")
+        blist.appendChild(b)
+        b.innerHTML = buttons[i]
+        b.classList.add("bt")
+        b.onclick = function(){
+            setDirection("udlr"[i])
+            let txt = document.getElementById("dir")
+            txt.innerHTML = "The direction is " + buttons[i]
+        }
+
+    }
+
+
+
+    // create the board
+    grid = document.getElementById("grid")
+    for(let i = 0;i<5;i++){
+        myrow = []
+        for(let j = 0;j<5;j++){
+            let cell = document.createElement("div")
+            cell.id = ""+i+j
+            cell.x = i
+            cell.y = j
+            //cell.innerHTML = cell.id
+            cell.classList = cl[maze[i][j]]
+            myrow.push(cell)
+            grid.appendChild(cell)
+           
+            cell.onclick=function(){
+              
+                click(cell.x,cell.y)
+            }
+            
+
+        }
+        gridArr.push(myrow)
+    }
+    gridArr[2][2].classList.add("center")
+    gridArr[2][2].innerHTML= "⭐️";
+    
+}    
+        
+        
+    </script>
+    
+    <style>
+        
+    :root{
+    --cellColor : grey;
+    --h: 60px;
+}
+body 
+{
+    background-color:antiquewhite;
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(5, var(--h) );
+  grid-template-rows:repeat(5, var(--h) );
+  gap: 1px 1px;
+ 
+}
+
+.bt{
+    background-color:cornflowerblue;
+    color:bisque;
+    align: center;
+}
+.grid-container2 {
+  margin-top: 20px;
+  display: grid;
+  
+  grid-template-columns:repeat(4, var(--h) );
+  gap: 1px 1px;
+ 
+}
+.harry{
+    background-color:coral;
+}
+.gr{
+    background-color: var(--cellColor);
+}
+.r{
+    background-color: red;
+}
+.y{
+    background-color: yellowgreen;
+
+}
+h1{
+   color:coral; 
+}
+
+#rules{
+    margin-bottom:10px;
+}
+
+.center{
+    text-align:center ;
+}   
+        
+    </style>
+        <h1>The Rescue of Sir Henry</h1>
+        
+        <div id = "rules">
+          Sir Henry finished his mission on a secret planet on the milky way.<br> He must reach the star tile to be beamed back home.<br> Well - there is no gravity on this planet.<br> He must rely on his green friends.<br> He first sets the correct direction and after he chooses one of his friends or himself to jump.<br><br> May no one get lost in space...
+            
+        </div>
+        <div id = "ch"></div>
+        <div class="grid-container" id = "grid"></div>
+        <div class="grid-container2" id = "buttons"></div>
+        <p id = "dir">The direction is ⬅️</p>
+        <button onclick = "reset()">reset</button>
+        <button onclick = "prev()">Previous challenge</button>
+        <button onclick = "next()">Next challenge</button>
+        
+    </body>
+</html>
