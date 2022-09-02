@@ -25,9 +25,9 @@ function makeSolvable(){
 function test(arr) 
 { 
     var inv_count = 0; 
-    for (var  i = 0; i < 14; i++) 
+    for (var  i = 2; i < 16; i++) 
     { 
-        for (var j = i + 1; j < 15; j++) 
+        for (var j = i + 1; j < 17; j++) 
         { 
             // count pairs(i, j) such that i appears 
             // before j, but i > j. 
@@ -50,7 +50,7 @@ function test(arr)
 }
 
 function getImages(){
-        for(var i = 1;i<=15;i++){
+        for(var i = 2;i<=16;i++){
         var zerofilled = i+""
         var pic =pattern.replace("xy", zerofilled);
         imgs.push(pic)
